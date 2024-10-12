@@ -162,6 +162,3 @@ plt.close()
 
 # Save the trained model
 joblib.dump(reg_pipe_best, 'results/random_forest_model.pkl')
-
-
-
