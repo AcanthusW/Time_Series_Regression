@@ -12,6 +12,7 @@ This project is a machine learning pipeline designed to predict flow rates based
 ├── plot_3d.py           # 3D visualizations
 ├── requirements.txt     # All about environment
 ├── README.md            # Readme documentation
+├── origianl_analysis_process.ipynb       # original analysis process, including everything
 ├── data/                # Data storage
 └── results/             # Output plots and model
 ```
