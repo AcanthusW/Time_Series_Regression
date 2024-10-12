@@ -1,46 +1,85 @@
 # Time_Series_Regression
-A repository focused on high-frequency time-series regression with RandomForestRegressor
 
-Notice: Intended for Non-Commercial Use  
+Notice!!!: Intended for Non-Commercial Use  
 
+Overview 
 
-├── main.py                 # Main script
-├── utils.py                # Helper functions
-├── requirements.txt        # All about environment
-├── README.md               # Readme documentation
-└── data/                   # Data storage
+This project is a machine learning pipeline designed to predict flow rates based on high-frequency time-series data. The main components include feature extraction, hyperparameter tuning via grid search, model training, K-Fold cross-validation, and analysis using SHAP values. The repository contains Python scripts and dependencies needed to reproduce the workflow.
 
 
-"""
-Usage Instructions:
+├── main.py              # Main script
+├── utils.py             # Helper functions
+├── plot_3d.py           # 3D visualizations
+├── requirements.txt     # All about environment
+├── README.md            # Readme documentation
+├── data/                # Data storage
+└── results/             # Output plots and model
 
--- plot_3d.py:
+Requirements
 
-1. To create a raw data plot and save it as an HTML file, use the following command:
+You can install all the dependencies using the following command:
 
    ```
-   python visualization.py
+   pip install -r requirements.txt
    ```
 
-   This will generate and save the raw data plot, truncated data plot, and smoothed data plot in the `results` folder.
+Usage Instructions
 
-2. If you want to create only the raw data plot, modify the script in the `__main__` section:
+1. Running the Project
 
-   ```python
-   visualization.raw_data_plot()
+To run the project, you need to execute the main script. This script will handle the entire pipeline, from loading the dataset to training and evaluating the model, and generating SHAP analysis plots.
+
+   ```
+   python main.py
    ```
 
-   You can specify the file path for your dataset by changing the `file_path` variable.
+2. Input Data
 
-3. To generate specific plots, comment out or remove the functions you do not need in the `__main__` section.
+Ensure you have the input dataset (dataset.csv) in the data directory. The script reads this dataset for training and evaluation. You can modify the dataset_path variable in main.py if your dataset is located elsewhere.
 
-Example Command Line Execution:
 
-- To generate the raw data plot:
-  ```
-  python visualization.py
-  ```
+3. Output
 
-- Make sure to have the dataset CSV file in the `data` folder, or change `file_path` accordingly.
+The following outputs are generated and saved to the results directory:
 
-"""
+- **K-Fold Cross Validation Plot**: Shows the R² score for each fold during cross-validation (`results/kfold_cross_validation.png`).
+
+- **SHAP Summary Plot**:: SHAP analysis of feature importance for the trained model (`results/shap_summary.png`).
+
+- **PCA SHAP Summary Plot**: SHAP analysis of PCA-transformed features (`results/shap_summary_pca.png`).
+
+- **Trained Random Forest Model**: The final model saved for future use (`results/random_forest_model.pkl`).
+
+Detailed Explanation
+
+-- Grid Search
+
+The main.py script performs a grid search over different feature extraction and window parameters. The search explores combinations of:
+
+Method: Aggregation methods including mean, std, median, and var.
+
+Window Function: Windowing methods such as hann, gaussian, triang, blackman, hamming, bartlett, and kaiser.
+
+Max Number of Peaks: Ranges from 25 to 45, to define how many peaks are used in feature extraction.
+
+-- SHAP Analysis
+
+SHAP values are used to interpret the trained model. The script produces:
+
+A SHAP summary plot of the original features (shap_summary.png).
+
+A SHAP summary plot of the PCA-transformed features (shap_summary_pca.png). These plots help in understanding the feature contributions to the model predictions.
+
+
+-- PCA Analysis
+
+Principal Component Analysis (PCA) is applied to reduce the feature dimensionality. The SHAP analysis is also performed on PCA-transformed features to explore feature interactions in reduced dimensions.
+
+
+Contribution
+
+Contributions are welcome! Feel free to open issues or pull requests for suggestions or improvements.
+
+Contact
+
+For any questions or inquiries, please contact the repository owner.
