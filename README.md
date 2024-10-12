@@ -14,6 +14,7 @@ This project is a machine learning pipeline designed to predict flow rates based
 ├── README.md            # Readme documentation
 ├── data/                # Data storage
 └── results/             # Output plots and model
+```
 
 ## Requirements
 
