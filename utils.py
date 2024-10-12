@@ -16,6 +16,7 @@ def evaluate_metrics(est, X_test_pp, y_test):
     Returns:
     dict: Dictionary containing evaluation metrics.
     """
+
     y_pred = est.predict(X_test_pp)
     metrics = {
         'MAE': mean_absolute_error(y_test, y_pred),
@@ -38,6 +39,7 @@ def cross_evaluate_scores(reg, X, y, scoring=None):
     Returns:
     DataFrame: Cross-validation scores for each metric.
     """
+
     if scoring is None:
         scoring = ['neg_mean_absolute_error', 'neg_mean_squared_error', 'r2', 'explained_variance']
     
@@ -56,6 +58,7 @@ def plot_tr_spectrum_with_annotations(freq_vel_tr, ax=None):
     Returns:
     None
     """
+
     if ax is None:
         fig, ax = plt.subplots(figsize=(10, 6))
     
@@ -79,6 +82,7 @@ def PFSpectraFeatExtr(agg_spectrum_window_size=35, spectrum_window_size=35, max_
     Returns:
     dict: Feature extraction configuration dictionary.
     """
+    
     return {
         'agg_spectrum_window_size': agg_spectrum_window_size,
         'spectrum_window_size': spectrum_window_size,
