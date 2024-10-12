@@ -1,10 +1,7 @@
 import pandas as pd
 import holoviews as hv
 from holoviews import opts
-import pandas as pd
 import numpy as np
-import holoviews as hv
-from holoviews import dim, opts
 import utils
 
 hv.extension('bokeh')
