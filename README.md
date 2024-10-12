@@ -2,7 +2,7 @@
 
 Notice!!!: Intended for Non-Commercial Use  
 
-Overview 
+## Overview 
 
 This project is a machine learning pipeline designed to predict flow rates based on high-frequency time-series data. The main components include feature extraction, hyperparameter tuning via grid search, model training, K-Fold cross-validation, and analysis using SHAP values. The repository contains Python scripts and dependencies needed to reproduce the workflow.
 
@@ -15,7 +15,7 @@ This project is a machine learning pipeline designed to predict flow rates based
 ├── data/                # Data storage
 └── results/             # Output plots and model
 
-Requirements
+## Requirements
 
 You can install all the dependencies using the following command:
 
@@ -23,9 +23,9 @@ You can install all the dependencies using the following command:
    pip install -r requirements.txt
    ```
 
-Usage Instructions
+## Usage Instructions
 
-1. Running the Project
+### Running the Project
 
 To run the project, you need to execute the main script. This script will handle the entire pipeline, from loading the dataset to training and evaluating the model, and generating SHAP analysis plots.
 
@@ -33,12 +33,12 @@ To run the project, you need to execute the main script. This script will handle
    python main.py
    ```
 
-2. Input Data
+### Input Data
 
 Ensure you have the input dataset (dataset.csv) in the data directory. The script reads this dataset for training and evaluation. You can modify the dataset_path variable in main.py if your dataset is located elsewhere.
 
 
-3. Output
+### Output
 
 The following outputs are generated and saved to the results directory:
 
@@ -50,9 +50,9 @@ The following outputs are generated and saved to the results directory:
 
 - **Trained Random Forest Model**: The final model saved for future use (`results/random_forest_model.pkl`).
 
-Detailed Explanation
+## Detailed Explanation
 
--- Grid Search
+### Grid Search
 
 The main.py script performs a grid search over different feature extraction and window parameters. The search explores combinations of:
 
@@ -62,7 +62,7 @@ Window Function: Windowing methods such as hann, gaussian, triang, blackman, ham
 
 Max Number of Peaks: Ranges from 25 to 45, to define how many peaks are used in feature extraction.
 
--- SHAP Analysis
+### SHAP Analysis
 
 SHAP values are used to interpret the trained model. The script produces:
 
@@ -71,15 +71,15 @@ A SHAP summary plot of the original features (shap_summary.png).
 A SHAP summary plot of the PCA-transformed features (shap_summary_pca.png). These plots help in understanding the feature contributions to the model predictions.
 
 
--- PCA Analysis
+### PCA Analysis
 
 Principal Component Analysis (PCA) is applied to reduce the feature dimensionality. The SHAP analysis is also performed on PCA-transformed features to explore feature interactions in reduced dimensions.
 
 
-Contribution
+## Contribution
 
 Contributions are welcome! Feel free to open issues or pull requests for suggestions or improvements.
 
-Contact
+## Contact
 
 For any questions or inquiries, please contact the repository owner.
